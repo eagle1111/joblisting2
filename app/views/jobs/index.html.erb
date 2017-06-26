@@ -1,0 +1,28 @@
+<div class="pull-right">
+  <%= link_to("新增工作", new_job_path(@job), :class => "btn btn-danger") %>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>title</td>
+      <td>description</td>
+      <td>time</td>
+      <td>option</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+    <tr>
+      <td>#</td>
+      <td><%= link_to(job.title, job_path(job)) %></td>
+      <td><%= job.description %></td>
+      <td><%= job.created_at %></td>
+      <td>
+        <%= link_to("edit", edit_job_path(job), :class => "btn btn-info") %>
+        <%= link_to("delete", job_path(job), :method => :delete, :class => "btn btn-info") %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
